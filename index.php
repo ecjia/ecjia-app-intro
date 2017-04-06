@@ -54,6 +54,7 @@ class index extends ecjia_front {
         if (RC_Agent::isPhone()) {
             $this->redirect(RC_Uri::home_url() . '/sites/m/');
         }
+        
         $cache_id = sprintf('%X', crc32($_SERVER['QUERY_STRING']));
         
         if (!ecjia_front::$controller->is_cached('index.dwt', $cache_id)) {
