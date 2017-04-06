@@ -51,9 +51,9 @@ class index extends ecjia_front {
     public function init() {
         
         //判断是否手机访问，如果手机访问，自动跳到H5页面
-        if (RC_Agent::isPhone()) {
-            $this->redirect(RC_Uri::home_url() . '/sites/m/');
-        }
+//         if (RC_Agent::isPhone()) {
+//             $this->redirect(RC_Uri::home_url() . '/sites/m/');
+//         }
         
         $cache_id = sprintf('%X', crc32($_SERVER['QUERY_STRING']));
         
