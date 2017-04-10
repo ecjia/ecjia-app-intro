@@ -59,9 +59,10 @@ class index extends ecjia_front {
         
         if (!ecjia_front::$controller->is_cached('index.dwt', $cache_id)) {
 			$merchant_url     = RC_Uri::url('franchisee/merchant/init');
-			$merchant_url     = str_replace('index.php', 'sites/merchant/index.php', $merchant_url);
+			$merchant_url     = str_replace('sites/app/index.php', 'sites/merchant/index.php', $merchant_url);
+			
 	        $merchant_login   = RC_Uri::url('staff/privilege/login');
-	        $merchant_login   = str_replace('index.php', 'sites/merchant/index.php', $merchant_login);
+	        $merchant_login   = str_replace('sites/app/index.php', 'sites/merchant/index.php', $merchant_login);
 	        $this->assign('merchant_url', $merchant_url);
 			$this->assign('merchant_login',$merchant_login);
 			// 应用预览图
@@ -85,7 +86,7 @@ class index extends ecjia_front {
 	        if (!empty($shop_info)) {
 	            foreach($shop_info as $key => $val){
 	                $url                    = RC_Uri::url('merchant/merchant/shopinfo', array('id' => $val['article_id']));
-	                $shop_info[$key]['url'] = str_replace('index.php', 'sites/merchant/index.php', $url);
+	                $shop_info[$key]['url'] = str_replace('sites/app/index.php', 'sites/merchant/index.php', $url);
 	            }
 	        }
 	
