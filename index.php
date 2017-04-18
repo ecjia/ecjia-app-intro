@@ -58,13 +58,26 @@ class index extends ecjia_front {
         $cache_id = sprintf('%X', crc32($_SERVER['QUERY_STRING']));
         
         if (!ecjia_front::$controller->is_cached('index.dwt', $cache_id)) {
+        	//首页url
+        	$main_url = RC_Uri::url('main/index/init');
+        	$main_url = str_replace('sites/app/', '', $main_url);
+        	$this->assign('main_url', $main_url);
+        	
+        	//商家列表url
+        	$main_goods_url = RC_Uri::url('merchant/goods/category');
+        	$main_goods_url = str_replace('sites/app/', '', $main_goods_url);
+        	$this->assign('main_goods_url', $main_goods_url);
+        	
+        	//商家入驻url
 			$merchant_url     = RC_Uri::url('franchisee/merchant/init');
 			$merchant_url     = str_replace('sites/app/index.php', 'sites/merchant/index.php', $merchant_url);
+			$this->assign('merchant_url', $merchant_url);
 			
+			//商家登录url
 	        $merchant_login   = RC_Uri::url('staff/privilege/login');
 	        $merchant_login   = str_replace('sites/app/index.php', 'sites/merchant/index.php', $merchant_login);
-	        $this->assign('merchant_url', $merchant_url);
-			$this->assign('merchant_login',$merchant_login);
+			$this->assign('merchant_login', $merchant_login);
+
 			// 应用预览图
 			$mobile_app_preview_temp 	= ecjia::config('mobile_app_preview');
 			$mobile_app_preview 		= unserialize($mobile_app_preview_temp);
