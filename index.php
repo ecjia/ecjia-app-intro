@@ -64,7 +64,7 @@ class index extends ecjia_front {
         	$this->assign('main_url', $main_url);
         	
         	//商家列表url
-        	$main_goods_url = RC_Uri::url('merchant/goods/category');
+        	$main_goods_url = RC_Uri::url('merchant/store/category');
         	$main_goods_url = str_replace('sites/app/', '', $main_goods_url);
         	$this->assign('main_goods_url', $main_goods_url);
         	
