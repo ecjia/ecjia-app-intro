@@ -9,7 +9,7 @@ class IntroServiceProvider extends  AppParentServiceProvider
     
     public function boot()
     {
-        $this->package('ecjia/app-intro', null, dirname(__DIR__));
+        $this->package('ecjia/app-intro');
     }
     
     public function register()
